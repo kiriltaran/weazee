@@ -35,8 +35,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "yarn lint --fix",
+    "lint:scripts": "eslint . --ext .ts,.tsx",
+    "lint:scripts:fix": "yarn lint:scripts --fix",
+    "lint:styles": "stylelint '**/*.scss'",
+    "lint:styles:fix": "yarn lint:styles --fix",
+    "lint": "yarn lint:scripts && yarn lint:styles",
     "prepare": "husky install",
     "commit": "git-cz"
   },
@@ -73,7 +76,13 @@
     "eslint-plugin-react-hooks": "^4.2.1-beta-71d16750c-20211202",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
-    "prettier": "^2.5.0"
+    "postcss": "^8.4.4",
+    "prettier": "^2.5.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-images": "^2.0.1",
+    "stylelint-order": "^5.0.0"
   },
   "config": {
     "commitizen": {
