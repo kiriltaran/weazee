@@ -40,6 +40,14 @@
     }
   },
   "rules": {
+    //eslint rules
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "TSEnumDeclaration",
+        "message": "Don't declare enums"
+      }
+    ],
     // import rules
     "import/no-default-export": "error",
     // react rules
@@ -57,6 +65,17 @@
     // typescript rules
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": false
+        }
+      }
+    ],
     // prefer arrow rules
     "prefer-arrow/prefer-arrow-functions": [
       "error",
