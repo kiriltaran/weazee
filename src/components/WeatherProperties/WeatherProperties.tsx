@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import styles from './WeatherProperties.module.scss';
 import { WeatherPropertiesItem } from 'components/WeatherPropertiesItem';
-import { Fog, Rain, Breezy } from 'icons/index';
+import { Fog, Rain, Breezy } from 'icons';
 
 export const WeatherProperties: FC = () => {
   // TODO: fix icons for Humidity and Air Pressure
