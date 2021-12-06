@@ -1,0 +1,21 @@
+.weatherPropertiesItem {
+  display: flex;
+}
+
+.weatherPropertiesItemTitle {
+  margin-left: 18px;
+}
+
+.weatherPropertiesItemTitleName {
+  display: block;
+  margin-bottom: 8px;
+  color: #d7d7d7;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.weatherPropertiesItemTitleValue {
+  color: #fff;
+  font-weight: 600;
+  font-size: 32px;
+}
