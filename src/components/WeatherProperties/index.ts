@@ -1,0 +1,1 @@
+export { WeatherProperties } from './WeatherProperties';
