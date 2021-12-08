@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Weazee } from './Weazee';
+import { Weazee } from 'components/Weazee';
 import './index.scss';
 import { reportWebVitals } from './reportWebVitals';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
