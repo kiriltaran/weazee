@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { App } from './App';
+import { Weazee } from './Weazee';
 import './index.scss';
 import { reportWebVitals } from './reportWebVitals';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 render(
   <React.StrictMode>
-    <App />
+    <Weazee />
   </React.StrictMode>,
   document.getElementById('root'),
 );

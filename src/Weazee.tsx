@@ -1,11 +1,7 @@
-import type { FC } from 'react';
-import styles from './WeatherBackground.module.scss';
+import styles from './Weazee.module.scss';
 import * as weatherImages from 'assets/images/weathers';
 
 type WeatherType = 'Fog' | 'Rain' | 'Wind' | 'Thunderstorm' | 'Snow' | 'Sun';
-interface WeatherBackgroundProps {
-  type: WeatherType;
-}
 
 const weatherImagesMap = {
   Fog: [
@@ -59,13 +55,15 @@ const getRandomImageUrlByWeatherType = (type: WeatherType) => {
   return weatherImagesMap[type][randomImageIdx];
 };
 
-export const WeatherBackground: FC<WeatherBackgroundProps> = ({ type }) => {
+export const Weazee = () => {
   return (
-    <div
-      className={styles.weatherBackground}
-      style={{
-        backgroundImage: `url(${getRandomImageUrlByWeatherType(type)})`,
-      }}
-    />
+    <div className={styles.weazee}>
+      <div
+        className={styles.weazeeBackground}
+        style={{
+          backgroundImage: `url(${getRandomImageUrlByWeatherType('Sun')})`,
+        }}
+      />
+    </div>
   );
 };
