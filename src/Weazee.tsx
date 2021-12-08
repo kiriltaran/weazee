@@ -57,13 +57,13 @@ const getRandomImageUrlByWeatherType = (type: WeatherType) => {
 
 export const Weazee = () => {
   return (
-    <div className={styles.weazee}>
-      <div
-        className={styles.weazeeBackground}
-        style={{
-          backgroundImage: `url(${getRandomImageUrlByWeatherType('Sun')})`,
-        }}
-      />
+    <div
+      className={styles.weazee}
+      style={{
+        backgroundImage: `url(${getRandomImageUrlByWeatherType('Sun')})`,
+      }}
+    >
+      <h2 className={styles.weazeeContent}>weazee</h2>
     </div>
   );
 };
