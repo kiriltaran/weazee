@@ -43,7 +43,8 @@
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:fix": "yarn lint:scripts:fix && yarn lint:styles:fix",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "ci": "yarn install --frozen-lockfile"
   },
   "browserslist": {
     "production": [
