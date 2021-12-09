@@ -1,0 +1,42 @@
+name: notifications
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  telegram:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send telegram merge notification
+        uses: appleboy/telegram-action@master
+        if: github.event_name == 'push'
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.actor }} pushed commit into master
+
+            Commit message: 
+            ${{ github.event.commits[0].message }}
+                        
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+
+      - name: Send telegram PR notification
+        uses: appleboy/telegram-action@master
+        if: github.event_name == 'pull_request'
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.actor }} created PR into master
+
+            PR title: 
+            ${{ github.event.pull_request.title }}
+                        
+            See changes: ${{ github.event.pull_request.self }}
