@@ -16,6 +16,16 @@
 }
 
 .weazeeContent {
-  position: relative;
-  color: #fff;
+  display: grid;
+  grid-template:
+    "day day day properties"
+    "forecasts forecasts forecasts forecasts";
+  grid-template-rows: 1fr 340px;
+  height: 100%;
+}
+
+.weazeeForecasts {
+  display: flex;
+  grid-area: forecasts;
+  align-items: center;
 }

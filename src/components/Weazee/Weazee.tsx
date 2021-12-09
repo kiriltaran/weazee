@@ -1,5 +1,6 @@
 import styles from './Weazee.module.scss';
 import * as weatherImages from 'assets/images/weathers';
+import { WeatherForecasts } from 'components/WeatherForecasts';
 
 type WeatherType = 'Fog' | 'Rain' | 'Wind' | 'Thunderstorm' | 'Snow' | 'Sun';
 
@@ -49,11 +50,74 @@ const weatherImagesMap = {
 };
 
 const getRandomImageUrlByWeatherType = (type: WeatherType) => {
-  const MAX_IMG_IDX = 4;
-  const randomImageIdx = Math.floor(Math.random() * MAX_IMG_IDX) + 1;
+  const randomImageIdx =
+    Math.floor(Math.random() * weatherImagesMap[type].length - 1) + 1;
 
   return weatherImagesMap[type][randomImageIdx];
 };
+
+const forecasts = [
+  {
+    time: '1AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+  {
+    time: '2AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+  {
+    time: '3AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+  {
+    time: '4AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+  {
+    time: '5AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+  {
+    time: '6AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+  {
+    time: '7AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+  {
+    time: '8AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+  {
+    time: '9AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+  {
+    time: '10AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+  {
+    time: '11AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+  {
+    time: '12AM',
+    temperature: '24',
+    temperatureFeelsLike: '27',
+  },
+];
 
 export const Weazee = () => {
   return (
@@ -63,7 +127,12 @@ export const Weazee = () => {
         backgroundImage: `url(${getRandomImageUrlByWeatherType('Sun')})`,
       }}
     >
-      <h2 className={styles.weazeeContent}>weazee</h2>
+      <main className={styles.weazeeContent}>
+        <div className={styles.weazeeForecasts}>
+          {/* TODO: rename all Weather-like components to Weazee-like components */}
+          <WeatherForecasts forecasts={forecasts} />
+        </div>
+      </main>
     </div>
   );
 };
