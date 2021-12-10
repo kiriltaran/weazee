@@ -1,0 +1,1 @@
+export { WeazeePropertiesItem } from './WeazeePropertiesItem';
