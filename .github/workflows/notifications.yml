@@ -39,4 +39,4 @@ jobs:
             PR title: 
             ${{ github.event.pull_request.title }}
                         
-            See changes: ${{ github.event.pull_request.self }}
+            See changes: https://github.com/${{ github.repository }}/pull/${{github.event.number}}
