@@ -1,5 +1,11 @@
 @import "reset-css";
-@import "./assets/styles/variables";
+@import "swiper/swiper";
+@import "assets/styles/variables";
+
+html {
+  color: $white;
+  font-size: 18px;
+}
 
 body {
   font-family: Poppins, sans-serif;

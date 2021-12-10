@@ -1,0 +1,36 @@
+@import "assets/styles/variables";
+
+.weatherForecastsItem {
+  font-weight: 500;
+}
+
+.weatherForecastsItemTime {
+  margin-bottom: $space-xl;
+  font-size: 1rem;
+}
+
+.weatherForecastsItemTemperature {
+  margin-bottom: $space-l;
+  font-weight: 800;
+  font-size: 2.4rem;
+}
+
+.weatherForecastsItemFeelLike {
+  font-size: 1.2rem;
+}
+
+.weatherForecastsActive {
+  min-width: 170px;
+  padding: 25px 15px;
+  border: 5px solid $white;
+  box-shadow: 0 2px 12px 10px rgba(34, 60, 80, 0.18);
+
+  .weatherForecastsItemTime {
+    margin-bottom: $space-xxxl;
+    font-size: 1.1rem;
+  }
+
+  .weatherForecastsItemTemperature {
+    font-size: 3.4rem;
+  }
+}
