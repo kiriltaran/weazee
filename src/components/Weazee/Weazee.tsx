@@ -2,9 +2,9 @@ import styles from './Weazee.module.scss';
 import * as weazeeImages from 'assets/images/weathers';
 import { WeazeeForecasts } from 'components/WeazeeForecasts';
 
-type WeazeeType = 'Fog' | 'Rain' | 'Wind' | 'Thunderstorm' | 'Snow' | 'Sun';
+type WeatherType = 'Fog' | 'Rain' | 'Wind' | 'Thunderstorm' | 'Snow' | 'Sun';
 
-const weazeeImagesMap = {
+const weatherImagesMap = {
   Fog: [
     weazeeImages.Fog1,
     weazeeImages.Fog2,
@@ -49,11 +49,11 @@ const weazeeImagesMap = {
   ],
 };
 
-const getRandomImageUrlByWeazeeType = (type: WeazeeType) => {
+const getRandomImageUrlByWeatherType = (type: WeatherType) => {
   const randomImageIdx =
-    Math.floor(Math.random() * weazeeImagesMap[type].length - 1) + 1;
+    Math.floor(Math.random() * weatherImagesMap[type].length - 1) + 1;
 
-  return weazeeImagesMap[type][randomImageIdx];
+  return weatherImagesMap[type][randomImageIdx];
 };
 
 const forecasts = [
@@ -124,7 +124,7 @@ export const Weazee = () => {
     <div
       className={styles.weazee}
       style={{
-        backgroundImage: `url(${getRandomImageUrlByWeazeeType('Sun')})`,
+        backgroundImage: `url(${getRandomImageUrlByWeatherType('Sun')})`,
       }}
     >
       <main className={styles.weazeeContent}>
