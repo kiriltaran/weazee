@@ -1,51 +1,51 @@
 import styles from './Weazee.module.scss';
-import * as weatherImages from 'assets/images/weathers';
-import { WeatherForecasts } from 'components/WeatherForecasts';
+import * as weazeeImages from 'assets/images/weathers';
+import { WeazeeForecasts } from 'components/WeazeeForecasts';
 
 type WeatherType = 'Fog' | 'Rain' | 'Wind' | 'Thunderstorm' | 'Snow' | 'Sun';
 
 const weatherImagesMap = {
   Fog: [
-    weatherImages.Fog1,
-    weatherImages.Fog2,
-    weatherImages.Fog3,
-    weatherImages.Fog4,
-    weatherImages.Fog5,
+    weazeeImages.Fog1,
+    weazeeImages.Fog2,
+    weazeeImages.Fog3,
+    weazeeImages.Fog4,
+    weazeeImages.Fog5,
   ],
   Rain: [
-    weatherImages.Rain1,
-    weatherImages.Rain2,
-    weatherImages.Rain3,
-    weatherImages.Rain4,
-    weatherImages.Rain5,
+    weazeeImages.Rain1,
+    weazeeImages.Rain2,
+    weazeeImages.Rain3,
+    weazeeImages.Rain4,
+    weazeeImages.Rain5,
   ],
   Thunderstorm: [
-    weatherImages.Thunderstorm1,
-    weatherImages.Thunderstorm2,
-    weatherImages.Thunderstorm3,
-    weatherImages.Thunderstorm4,
-    weatherImages.Thunderstorm5,
+    weazeeImages.Thunderstorm1,
+    weazeeImages.Thunderstorm2,
+    weazeeImages.Thunderstorm3,
+    weazeeImages.Thunderstorm4,
+    weazeeImages.Thunderstorm5,
   ],
   Wind: [
-    weatherImages.Wind1,
-    weatherImages.Wind2,
-    weatherImages.Wind3,
-    weatherImages.Wind4,
-    weatherImages.Wind5,
+    weazeeImages.Wind1,
+    weazeeImages.Wind2,
+    weazeeImages.Wind3,
+    weazeeImages.Wind4,
+    weazeeImages.Wind5,
   ],
   Snow: [
-    weatherImages.Snow1,
-    weatherImages.Snow2,
-    weatherImages.Snow3,
-    weatherImages.Snow4,
-    weatherImages.Snow5,
+    weazeeImages.Snow1,
+    weazeeImages.Snow2,
+    weazeeImages.Snow3,
+    weazeeImages.Snow4,
+    weazeeImages.Snow5,
   ],
   Sun: [
-    weatherImages.Sun1,
-    weatherImages.Sun2,
-    weatherImages.Sun3,
-    weatherImages.Sun4,
-    weatherImages.Sun5,
+    weazeeImages.Sun1,
+    weazeeImages.Sun2,
+    weazeeImages.Sun3,
+    weazeeImages.Sun4,
+    weazeeImages.Sun5,
   ],
 };
 
@@ -129,8 +129,7 @@ export const Weazee = () => {
     >
       <main className={styles.weazeeContent}>
         <div className={styles.weazeeForecasts}>
-          {/* TODO: rename all Weather-like components to Weazee-like components */}
-          <WeatherForecasts forecasts={forecasts} />
+          <WeazeeForecasts forecasts={forecasts} />
         </div>
       </main>
     </div>

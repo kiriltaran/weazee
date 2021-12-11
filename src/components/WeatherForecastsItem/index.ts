@@ -1,1 +1,0 @@
-export { WeatherForecastsItem } from './WeatherForecastsItem';

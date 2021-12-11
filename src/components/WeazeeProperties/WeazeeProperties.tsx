@@ -1,9 +1,9 @@
 import type { FC } from 'react';
-import styles from './WeatherProperties.module.scss';
-import { WeatherPropertiesItem } from 'components/WeatherPropertiesItem';
+import styles from './WeazeeProperties.module.scss';
+import { WeazeePropertiesItem } from 'components/WeazeePropertiesItem';
 import { Fog, Rain, Breezy } from 'icons';
 
-export const WeatherProperties: FC = () => {
+export const WeazeeProperties: FC = () => {
   // TODO: fix icons for Humidity and Air Pressure
   const properties = [
     { icon: <Fog width={34} />, title: 'Humidity', value: '50 %' },
@@ -13,9 +13,9 @@ export const WeatherProperties: FC = () => {
   ];
 
   return (
-    <div className={styles.weatherProperties}>
+    <div className={styles.weazeeProperties}>
       {properties.map((property, idx) => (
-        <WeatherPropertiesItem
+        <WeazeePropertiesItem
           key={idx}
           icon={property.icon}
           title={property.title}

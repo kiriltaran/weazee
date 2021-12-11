@@ -1,0 +1,1 @@
+export { WeazeeForecastsItem } from './WeazeeForecastsItem';

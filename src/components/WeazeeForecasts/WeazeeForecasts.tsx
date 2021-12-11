@@ -2,16 +2,16 @@ import type { FC } from 'react';
 import classNames from 'classnames';
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
-import { WeatherForecastsItem } from 'components/WeatherForecastsItem';
+import { WeazeeForecastsItem } from 'components/WeazeeForecastsItem';
 
-import styles from './WeatherForecasts.module.scss';
+import styles from './WeazeeForecasts.module.scss';
 
 interface Forecast {
   time: string;
   temperature: string;
   temperatureFeelsLike: string;
 }
-interface WeatherForecastsProps {
+interface WeazeeForecastsProps {
   forecasts: Forecast[];
 }
 
@@ -20,15 +20,15 @@ const SPACE_BETWEEN_FORECASTS = 40;
 
 const isActiveForecast = (forecastIdx: number) => forecastIdx === 0;
 
-export const WeatherForecasts: FC<WeatherForecastsProps> = ({ forecasts }) => {
+export const WeazeeForecasts: FC<WeazeeForecastsProps> = ({ forecasts }) => {
   return (
-    <div className={styles.weatherForecasts}>
-      <div className={styles.weatherForecastsSwiper}>
+    <div className={styles.weazeeForecasts}>
+      <div className={styles.weazeeForecastsSwiper}>
         <Swiper
           modules={[Navigation]}
           navigation={{
-            prevEl: `.${styles.weatherForecastsNavigationButtonPrev}`,
-            nextEl: `.${styles.weatherForecastsNavigationButtonNext}`,
+            prevEl: `.${styles.weazeeForecastsNavigationButtonPrev}`,
+            nextEl: `.${styles.weazeeForecastsNavigationButtonNext}`,
           }}
           slidesPerView={FORECASTS_PER_VIEW}
           spaceBetween={SPACE_BETWEEN_FORECASTS}
@@ -36,10 +36,10 @@ export const WeatherForecasts: FC<WeatherForecastsProps> = ({ forecasts }) => {
           {forecasts.map((forecast, idx) => (
             <SwiperSlide
               key={forecast.time}
-              className={styles.weatherForecastsItemWrapper}
+              className={styles.weazeeForecastsItemWrapper}
             >
-              <div className={styles.weatherForecastsItem}>
-                <WeatherForecastsItem
+              <div className={styles.weazeeForecastsItem}>
+                <WeazeeForecastsItem
                   isActive={isActiveForecast(idx)}
                   time={forecast.time}
                   temperature={forecast.temperature}
@@ -50,17 +50,17 @@ export const WeatherForecasts: FC<WeatherForecastsProps> = ({ forecasts }) => {
           ))}
         </Swiper>
       </div>
-      <div className={styles.weatherForecastsNavigation}>
+      <div className={styles.weazeeForecastsNavigation}>
         <button
           className={classNames(
-            styles.weatherForecastsNavigationButton,
-            styles.weatherForecastsNavigationButtonPrev,
+            styles.weazeeForecastsNavigationButton,
+            styles.weazeeForecastsNavigationButtonPrev,
           )}
         />
         <button
           className={classNames(
-            styles.weatherForecastsNavigationButton,
-            styles.weatherForecastsNavigationButtonNext,
+            styles.weazeeForecastsNavigationButton,
+            styles.weazeeForecastsNavigationButtonNext,
           )}
         />
       </div>

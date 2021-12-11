@@ -1,16 +1,16 @@
 @import "assets/styles/variables";
 
-.weatherForecasts {
+.weazeeForecasts {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 200px;
 }
 
-.weatherForecastsSwiper {
+.weazeeForecastsSwiper {
   display: flex;
 }
 
-.weatherForecastsNavigation {
+.weazeeForecastsNavigation {
   z-index: 100;
   display: flex;
   align-items: center;
@@ -19,17 +19,17 @@
   padding-left: 40px;
 }
 
-.weatherForecastsItemWrapper {
+.weazeeForecastsItemWrapper {
   display: flex;
   align-items: center;
 }
 
-.weatherForecastsItem {
+.weazeeForecastsItem {
   padding-right: 30px;
   padding-left: 30px;
 }
 
-.weatherForecastsNavigationButton {
+.weazeeForecastsNavigationButton {
   width: 50px;
   height: 50px;
   background-color: rgba($black, 0.3);
@@ -46,13 +46,13 @@
   }
 }
 
-.weatherForecastsNavigationButtonPrev {
+.weazeeForecastsNavigationButtonPrev {
   &::after {
     transform: rotate(135deg) translateY(-2px);
   }
 }
 
-.weatherForecastsNavigationButtonNext {
+.weazeeForecastsNavigationButtonNext {
   &::after {
     transform: rotate(-45deg) translateX(-2px);
   }
