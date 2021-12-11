@@ -1,6 +1,7 @@
 import styles from './Weazee.module.scss';
 import * as weazeeImages from 'assets/images/weathers';
 import { WeazeeForecasts } from 'components/WeazeeForecasts';
+import { WeazeeProperties } from 'components/WeazeeProperties';
 
 type WeatherType = 'Fog' | 'Rain' | 'Wind' | 'Thunderstorm' | 'Snow' | 'Sun';
 
@@ -128,6 +129,9 @@ export const Weazee = () => {
       }}
     >
       <main className={styles.weazeeContent}>
+        <div className={styles.weazeeProperties}>
+          <WeazeeProperties />
+        </div>
         <div className={styles.weazeeForecasts}>
           <WeazeeForecasts forecasts={forecasts} />
         </div>

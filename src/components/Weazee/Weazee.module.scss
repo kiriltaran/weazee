@@ -16,12 +16,20 @@
 }
 
 .weazeeContent {
+  position: relative;
   display: grid;
   grid-template:
     "day day day properties"
     "forecasts forecasts forecasts forecasts";
   grid-template-rows: 1fr 340px;
   height: 100%;
+}
+
+.weazeeProperties {
+  display: flex;
+  grid-area: properties;
+  align-items: center;
+  padding-right: 50px;
 }
 
 .weazeeForecasts {
