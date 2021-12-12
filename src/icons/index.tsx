@@ -26,6 +26,8 @@ import { ReactComponent as IceSvg } from './025 Ice_1.svg';
 import { ReactComponent as HazeSvg } from './026 Haze_1.svg';
 import { ReactComponent as SmokeSvg } from './027 Smoke_1.svg';
 import { ReactComponent as NoReportSvg } from './028 No Report_1.svg';
+import { ReactComponent as HumiditySvg } from './029 Humidity.svg';
+import { ReactComponent as AirPressureSvg } from './030 Air_pressure.svg';
 
 import { createIcon } from './Icon';
 
@@ -57,3 +59,5 @@ export const Ice = createIcon(<IceSvg />);
 export const Haze = createIcon(<HazeSvg />);
 export const Smoke = createIcon(<SmokeSvg />);
 export const NoReport = createIcon(<NoReportSvg />);
+export const Humidity = createIcon(<HumiditySvg />);
+export const AirPressure = createIcon(<AirPressureSvg />);
