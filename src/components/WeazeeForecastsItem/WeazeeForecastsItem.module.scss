@@ -5,32 +5,32 @@
 }
 
 .weazeeForecastsItemTime {
-  margin-bottom: $space-xl;
-  font-size: 1rem;
+  margin-bottom: $space-l;
+  font-size: 0.9rem;
 }
 
 .weazeeForecastsItemTemperature {
   margin-bottom: $space-l;
   font-weight: 800;
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
 .weazeeForecastsItemFeelLike {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .weazeeForecastsActive {
-  min-width: 170px;
+  min-width: 150px;
   padding: 25px 15px;
   border: 5px solid $white;
   box-shadow: 0 2px 12px 10px rgba(34, 60, 80, 0.18);
 
   .weazeeForecastsItemTime {
-    margin-bottom: $space-xxxl;
-    font-size: 1.1rem;
+    margin-bottom: $space-xxl;
+    font-size: 1rem;
   }
 
   .weazeeForecastsItemTemperature {
-    font-size: 3.4rem;
+    font-size: 2.8rem;
   }
 }

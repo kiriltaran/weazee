@@ -15,9 +15,6 @@ interface WeazeeForecastsProps {
   forecasts: Forecast[];
 }
 
-const FORECASTS_PER_VIEW = 7;
-const SPACE_BETWEEN_FORECASTS = 40;
-
 const isActiveForecast = (forecastIdx: number) => forecastIdx === 0;
 
 export const WeazeeForecasts: FC<WeazeeForecastsProps> = ({ forecasts }) => {
@@ -30,22 +27,23 @@ export const WeazeeForecasts: FC<WeazeeForecastsProps> = ({ forecasts }) => {
             prevEl: `.${styles.weazeeForecastsNavigationButtonPrev}`,
             nextEl: `.${styles.weazeeForecastsNavigationButtonNext}`,
           }}
-          slidesPerView={FORECASTS_PER_VIEW}
-          spaceBetween={SPACE_BETWEEN_FORECASTS}
+          breakpoints={{
+            1440: {
+              slidesPerView: 6,
+            },
+          }}
         >
           {forecasts.map((forecast, idx) => (
             <SwiperSlide
               key={forecast.time}
               className={styles.weazeeForecastsItemWrapper}
             >
-              <div className={styles.weazeeForecastsItem}>
-                <WeazeeForecastsItem
-                  isActive={isActiveForecast(idx)}
-                  time={forecast.time}
-                  temperature={forecast.temperature}
-                  temperatureFeelsLike={forecast.temperatureFeelsLike}
-                />
-              </div>
+              <WeazeeForecastsItem
+                isActive={isActiveForecast(idx)}
+                time={forecast.time}
+                temperature={forecast.temperature}
+                temperatureFeelsLike={forecast.temperatureFeelsLike}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
