@@ -1,4 +1,4 @@
-@import "assets/styles/variables";
+@import 'assets/styles/variables';
 
 .weazeeForecasts {
   position: relative;
@@ -37,7 +37,12 @@
     padding: 4px;
     border: solid $white;
     border-width: 0 4px 4px 0;
-    content: "";
+    content: '';
+  }
+
+  &:disabled {
+    background-color: rgba($dove-gray, 0.6);
+    cursor: not-allowed;
   }
 }
 
