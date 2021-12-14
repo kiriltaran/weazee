@@ -1,3 +1,5 @@
+$content-space: 46px;
+
 .weazee {
   position: relative;
   width: 100vw;
@@ -22,14 +24,23 @@
     "day day day properties"
     "forecasts forecasts forecasts forecasts";
   grid-template-rows: 1fr 340px;
-  height: 100%;
+  height: calc(100vh - #{$content-space * 2});
+  padding: $content-space;
+}
+
+.weazeeWeatherType {
+  display: flex;
+  grid-area: day;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .weazeeProperties {
   display: flex;
   grid-area: properties;
-  align-items: center;
-  padding-right: 50px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-top: 72px;
 }
 
 .weazeeForecasts {

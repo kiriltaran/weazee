@@ -1,0 +1,26 @@
+@import "assets/styles/variables";
+
+.weazeeDayIcon {
+  margin-bottom: $space-m;
+}
+
+.weazeeDayWeather {
+  margin-bottom: $space-m;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.weazeeDayDate,
+.weazeeDayCity {
+  font-size: 1rem;
+}
+
+.weazeeDayCity {
+  margin-bottom: $space-m;
+  font-weight: 500;
+}
+
+.weazeeDayTemperature {
+  font-weight: 800;
+  font-size: 2.8rem;
+}
