@@ -131,7 +131,7 @@ export const Weazee = () => {
       }}
     >
       <main className={styles.weazeeContent}>
-        <div className={styles.WeazeeDay}>
+        <div className={styles.weazeeDay}>
           <WeazeeDay
             weather="Fog"
             date="24.12.2021"
