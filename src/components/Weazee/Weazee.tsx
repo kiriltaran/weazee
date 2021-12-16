@@ -2,6 +2,8 @@ import styles from './Weazee.module.scss';
 import * as weazeeImages from 'assets/images/weathers';
 import { WeazeeForecasts } from 'components/WeazeeForecasts';
 import { WeazeeProperties } from 'components/WeazeeProperties';
+import { WeazeeDay } from 'components/WeazeeDay';
+import { Fog } from 'icons';
 
 type WeatherType = 'Fog' | 'Rain' | 'Wind' | 'Thunderstorm' | 'Snow' | 'Sun';
 
@@ -129,6 +131,15 @@ export const Weazee = () => {
       }}
     >
       <main className={styles.weazeeContent}>
+        <div className={styles.weazeeDay}>
+          <WeazeeDay
+            weather="Fog"
+            date="24.12.2021"
+            city="London"
+            temperature="28 °C"
+            icon={<Fog width={72} />}
+          />
+        </div>
         <div className={styles.weazeeProperties}>
           <WeazeeProperties />
         </div>
