@@ -1,14 +1,19 @@
 const isObject = (value: unknown): value is Record<string, unknown> =>
-  typeof value === 'object';
+  typeof value === 'object' && value !== null;
 
 export const deepMapKeys = (
-  obj: Record<string, unknown>,
-  fn: (value: string) => string,
-) =>
-  Object.keys(obj).reduce<typeof obj>((acc, current) => {
-    const key = fn(current);
-    const value = obj[current];
-    acc[key] =
-      value !== null && isObject(value) ? deepMapKeys(value, fn) : value;
-    return acc;
-  }, {});
+  mappedEntity: unknown,
+  mapFn: (value: string) => string,
+): typeof mappedEntity =>
+  Array.isArray(mappedEntity)
+    ? mappedEntity.map((val) => deepMapKeys(val, mapFn))
+    : isObject(mappedEntity)
+    ? Object.keys(mappedEntity).reduce<typeof mappedEntity>((acc, current) => {
+        const key = mapFn(current);
+        const value = mappedEntity[current];
+        return {
+          ...acc,
+          [key]: isObject(value) ? deepMapKeys(value, mapFn) : value,
+        };
+      }, {})
+    : mappedEntity;
