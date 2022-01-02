@@ -1,8 +1,8 @@
 import { openWeatherClient } from './openWeatherClient';
 
-export interface ServerLocation {
+export interface Location {
   name: string;
-  local_names: Record<string, string>;
+  localNames: Record<string, string>;
   lat: number;
   lon: number;
   country: string;
@@ -13,7 +13,7 @@ const LIMIT = 10;
 
 export const openWeatherAPI = {
   getLocationByLocationName: (name: string) =>
-    openWeatherClient.request<unknown, ServerLocation[]>({
+    openWeatherClient.request<unknown, Location[]>({
       url: 'geo/1.0/direct',
       params: {
         q: name,
@@ -21,7 +21,7 @@ export const openWeatherAPI = {
       },
     }),
   getLocationByCoordinates: (lat: number, lon: number) =>
-    openWeatherClient.request<unknown, ServerLocation[]>({
+    openWeatherClient.request<unknown, Location[]>({
       url: 'geo/1.0/reverse',
       params: {
         lat,
