@@ -1,4 +1,10 @@
+import type { AxiosResponse } from 'axios';
 import axios from 'axios';
+import camelCase from 'lodash/camelCase';
+import { deepMapKeys } from './deepMapKeys';
+
+const transformResponse = ({ data }: AxiosResponse) =>
+  deepMapKeys(data, camelCase);
 
 const config = {
   baseURL: 'http://api.openweathermap.org',
@@ -10,6 +16,6 @@ const config = {
 
 const openWeatherClient = axios.create(config);
 
-openWeatherClient.interceptors.response.use(({ data }) => data);
+openWeatherClient.interceptors.response.use(transformResponse);
 
 export { openWeatherClient };
