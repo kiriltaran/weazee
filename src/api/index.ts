@@ -1,0 +1,1 @@
+export { openWeatherAPI } from './openWeatherAPI';
