@@ -1,0 +1,1 @@
+export { WeazeeSettings } from './WeazeeSettings';

@@ -15,15 +15,22 @@
   }
 }
 
-.weazeeContent {
+.weazeeMain {
   position: relative;
+  height: 100%;
+}
+
+.weazeePage {
+  height: 100%;
+}
+
+.weazeeMainPage {
   display: grid;
   grid-template:
     "day day day properties"
     "forecasts forecasts forecasts forecasts";
   grid-template-rows: 1fr 340px;
   grid-template-columns: 1fr 1fr 1fr auto;
-  height: 100%;
 }
 
 .weazeeDay {

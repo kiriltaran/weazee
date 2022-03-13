@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { render } from 'react-dom';
 import { Weazee } from 'components/Weazee';
 import './index.scss';
@@ -7,7 +8,9 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 render(
   <React.StrictMode>
-    <Weazee />
+    <BrowserRouter>
+      <Weazee />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),
 );

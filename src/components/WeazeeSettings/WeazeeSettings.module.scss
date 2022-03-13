@@ -1,0 +1,16 @@
+@import "assets/styles/variables";
+
+.weazeeSettings {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.weazeeLocationSuggestionLabel {
+  display: flex;
+}
+
+.weazeeLocationSuggestionCountry {
+  width: 20px;
+  margin-right: 20px;
+  color: $dove-gray;
+}
