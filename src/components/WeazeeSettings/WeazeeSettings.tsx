@@ -18,6 +18,29 @@ export const WeazeeSettings = () => {
     setLocationInputVisibility(false);
   };
 
+  const fetchLocationSuggestions = async (value: string) => {
+    try {
+      const locations = await openWeatherAPI.getLocationByLocationName(value);
+
+      return locations;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+
+  const getLocationSuggestionLabel = (suggestion: Location) => (
+    <div className={styles.weazeeLocationSuggestionLabel}>
+      <div className={styles.weazeeLocationSuggestionCountry}>
+        {suggestion.country}
+      </div>
+      <div className={styles.weazeeLocationSuggestionName}>
+        {suggestion.name}
+        {suggestion.state && `(${suggestion.state})`}
+      </div>
+    </div>
+  );
+
   return (
     <div className={styles.weazeeSettings}>
       <div className={styles.weazeeSettingsItem}>
@@ -26,28 +49,8 @@ export const WeazeeSettings = () => {
           {isVisibleLocationInput ? (
             <div className={styles.weazeeLocationInput}>
               <WeazeeSuggestionsInput<Location>
-                getSuggestionLabel={(suggestion) => (
-                  <div className={styles.weazeeLocationSuggestionLabel}>
-                    <div className={styles.weazeeLocationSuggestionCountry}>
-                      {suggestion.country}
-                    </div>
-                    <div className={styles.weazeeLocationSuggestionName}>
-                      {suggestion.name}
-                      {suggestion.state && `(${suggestion.state})`}
-                    </div>
-                  </div>
-                )}
-                fetchSuggestions={async (value) => {
-                  try {
-                    const locations =
-                      await openWeatherAPI.getLocationByLocationName(value);
-
-                    return locations;
-                  } catch (error) {
-                    console.error(error);
-                    return [];
-                  }
-                }}
+                getSuggestionLabel={getLocationSuggestionLabel}
+                fetchSuggestions={fetchLocationSuggestions}
                 onSelectSuggestion={handleSuggestionSelection}
               />
             </div>
