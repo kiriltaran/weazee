@@ -1,3 +1,4 @@
+import filter from 'lodash/filter';
 import classNames from 'classnames';
 import { Routes, Route } from 'react-router-dom';
 import * as weazeeImages from 'assets/images/weathers';
@@ -10,59 +11,40 @@ import styles from './Weazee.module.scss';
 
 import { Fog } from 'icons';
 
-type WeatherType = 'fog' | 'rain' | 'wind' | 'thunderstorm' | 'snow' | 'sun';
+type Weather = 'fog' | 'rain' | 'wind' | 'thunderstorm' | 'snow' | 'sun';
 
-// TODO: get dynamic weather images map
-const weatherImagesMap = {
-  fog: [
-    weazeeImages.Fog1,
-    weazeeImages.Fog2,
-    weazeeImages.Fog3,
-    weazeeImages.Fog4,
-    weazeeImages.Fog5,
-  ],
-  rain: [
-    weazeeImages.Rain1,
-    weazeeImages.Rain2,
-    weazeeImages.Rain3,
-    weazeeImages.Rain4,
-    weazeeImages.Rain5,
-  ],
-  thunderstorm: [
-    weazeeImages.Thunderstorm1,
-    weazeeImages.Thunderstorm2,
-    weazeeImages.Thunderstorm3,
-    weazeeImages.Thunderstorm4,
-    weazeeImages.Thunderstorm5,
-  ],
-  wind: [
-    weazeeImages.Wind1,
-    weazeeImages.Wind2,
-    weazeeImages.Wind3,
-    weazeeImages.Wind4,
-    weazeeImages.Wind5,
-  ],
-  snow: [
-    weazeeImages.Snow1,
-    weazeeImages.Snow2,
-    weazeeImages.Snow3,
-    weazeeImages.Snow4,
-    weazeeImages.Snow5,
-  ],
-  sun: [
-    weazeeImages.Sun1,
-    weazeeImages.Sun2,
-    weazeeImages.Sun3,
-    weazeeImages.Sun4,
-    weazeeImages.Sun5,
-  ],
+type WeatherImagesMap = Partial<Record<Weather, string[]>>;
+
+const getWeatherImages = (weather: Weather) => {
+  return filter(weazeeImages, (_, key) =>
+    key.startsWith(`${weather[0].toUpperCase()}${weather.slice(1)}`),
+  );
 };
 
-const getRandomImageUrlByWeatherType = (type: WeatherType) => {
-  const randomImageIdx =
-    Math.floor(Math.random() * weatherImagesMap[type].length - 1) + 1;
+const createWeatherImagesMap = (weathers: Weather[]) => {
+  return weathers.reduce<WeatherImagesMap>((weathersMap, weather) => {
+    return { ...weathersMap, [weather]: getWeatherImages(weather) };
+  }, {});
+};
 
-  return weatherImagesMap[type][randomImageIdx];
+const weatherImagesMap = createWeatherImagesMap([
+  'fog',
+  'rain',
+  'wind',
+  'thunderstorm',
+  'snow',
+  'sun',
+]);
+
+const getRandomImageUrlByWeather = (weather: Weather) => {
+  const weatherImages = weatherImagesMap[weather];
+
+  if (weatherImages) {
+    const randomImageIdx =
+      Math.floor(Math.random() * weatherImages?.length - 1) + 1;
+
+    return weatherImages[randomImageIdx];
+  }
 };
 
 const forecasts = [
@@ -156,7 +138,7 @@ const WeazeeMainPage = () => (
 );
 
 export const Weazee = () => {
-  const backgroundImage = `url(${getRandomImageUrlByWeatherType('sun')})`;
+  const backgroundImage = `url(${getRandomImageUrlByWeather('sun')})`;
 
   // TODO: create routes config
   return (
