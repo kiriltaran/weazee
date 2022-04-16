@@ -1,49 +1,55 @@
-import styles from './Weazee.module.scss';
+import classNames from 'classnames';
+import { Routes, Route } from 'react-router-dom';
 import * as weazeeImages from 'assets/images/weathers';
 import { WeazeeForecasts } from 'components/WeazeeForecasts';
 import { WeazeeProperties } from 'components/WeazeeProperties';
 import { WeazeeDay } from 'components/WeazeeDay';
+import { WeazeeSettings } from 'components/WeazeeSettings';
+
+import styles from './Weazee.module.scss';
+
 import { Fog } from 'icons';
 
-type WeatherType = 'Fog' | 'Rain' | 'Wind' | 'Thunderstorm' | 'Snow' | 'Sun';
+type WeatherType = 'fog' | 'rain' | 'wind' | 'thunderstorm' | 'snow' | 'sun';
 
+// TODO: get dynamic weather images map
 const weatherImagesMap = {
-  Fog: [
+  fog: [
     weazeeImages.Fog1,
     weazeeImages.Fog2,
     weazeeImages.Fog3,
     weazeeImages.Fog4,
     weazeeImages.Fog5,
   ],
-  Rain: [
+  rain: [
     weazeeImages.Rain1,
     weazeeImages.Rain2,
     weazeeImages.Rain3,
     weazeeImages.Rain4,
     weazeeImages.Rain5,
   ],
-  Thunderstorm: [
+  thunderstorm: [
     weazeeImages.Thunderstorm1,
     weazeeImages.Thunderstorm2,
     weazeeImages.Thunderstorm3,
     weazeeImages.Thunderstorm4,
     weazeeImages.Thunderstorm5,
   ],
-  Wind: [
+  wind: [
     weazeeImages.Wind1,
     weazeeImages.Wind2,
     weazeeImages.Wind3,
     weazeeImages.Wind4,
     weazeeImages.Wind5,
   ],
-  Snow: [
+  snow: [
     weazeeImages.Snow1,
     weazeeImages.Snow2,
     weazeeImages.Snow3,
     weazeeImages.Snow4,
     weazeeImages.Snow5,
   ],
-  Sun: [
+  sun: [
     weazeeImages.Sun1,
     weazeeImages.Sun2,
     weazeeImages.Sun3,
@@ -122,30 +128,49 @@ const forecasts = [
   },
 ];
 
+// TODO: extract pages to separate files
+const WeazeeSettingsPage = () => (
+  <div className={classNames(styles.weazeeSettingsPage, styles.weazeePage)}>
+    <WeazeeSettings />
+  </div>
+);
+
+const WeazeeMainPage = () => (
+  <div className={classNames(styles.weazeeMainPage, styles.weazeePage)}>
+    <div className={styles.weazeeDay}>
+      <WeazeeDay
+        weather="Fog"
+        date="24.12.2021"
+        city="London"
+        temperature="28 °C"
+        icon={<Fog width={72} />}
+      />
+    </div>
+    <div className={styles.weazeeProperties}>
+      <WeazeeProperties />
+    </div>
+    <div className={styles.weazeeForecasts}>
+      <WeazeeForecasts forecasts={forecasts} />
+    </div>
+  </div>
+);
+
 export const Weazee = () => {
+  const backgroundImage = `url(${getRandomImageUrlByWeatherType('sun')})`;
+
+  // TODO: create routes config
   return (
     <div
       className={styles.weazee}
       style={{
-        backgroundImage: `url(${getRandomImageUrlByWeatherType('Sun')})`,
+        backgroundImage,
       }}
     >
-      <main className={styles.weazeeContent}>
-        <div className={styles.weazeeDay}>
-          <WeazeeDay
-            weather="Fog"
-            date="24.12.2021"
-            city="London"
-            temperature="28 °C"
-            icon={<Fog width={72} />}
-          />
-        </div>
-        <div className={styles.weazeeProperties}>
-          <WeazeeProperties />
-        </div>
-        <div className={styles.weazeeForecasts}>
-          <WeazeeForecasts forecasts={forecasts} />
-        </div>
+      <main className={styles.weazeeMain}>
+        <Routes>
+          <Route path="/" element={<WeazeeMainPage />} />
+          <Route path="/settings" element={<WeazeeSettingsPage />} />
+        </Routes>
       </main>
     </div>
   );

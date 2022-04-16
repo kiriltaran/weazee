@@ -1,0 +1,41 @@
+@import "assets/styles/variables";
+
+.weazeeInput {
+  width: 100%;
+  height: 30px;
+  padding: 0;
+  color: $white;
+  font-size: 1rem;
+  background: none;
+  border: 0 solid $white;
+  border-bottom-width: 1px;
+  outline: none;
+
+  &:focus {
+    border-bottom-width: 2px;
+  }
+}
+
+.weazeeSuggestions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.weazeeSuggestionsItem {
+  height: 30px;
+  color: $white;
+  text-align: left;
+  background: none;
+  border: 1px solid $white;
+  border-bottom: none;
+  cursor: pointer;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $white;
+  }
+}

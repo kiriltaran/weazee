@@ -1,0 +1,1 @@
+export { WeazeeSuggestionsInput } from './WeazeeSuggestionsInput';
